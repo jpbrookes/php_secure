@@ -34,6 +34,9 @@ RUN sed -i 's/^ServerSignature/#ServerSignature/g' /etc/apache2/conf-enabled/sec
 ADD 000-default.conf /etc/apache2/sites-enabled/000-default.conf
 ADD 001-default-ssl.conf /etc/apache2/sites-enabled/001-default-ssl.conf
 
+RUN mkdir -p /app && rm -fr /var/www/html && ln -s /app /var/www/html
+RUN cd ./app && git clone https://github.com/jpbrookes/php_app/
+
 EXPOSE 80
 EXPOSE 443
 
