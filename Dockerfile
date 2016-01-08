@@ -5,7 +5,16 @@ ENV LANG C.UTF-8
 
 RUN apt-get update; apt-get install -y \
     apache2 \
-    openssl
+    openssl\
+            curl \
+        git \
+        libapache2-mod-php5 \
+        php5-mysql \
+        php5-mcrypt \
+        php5-gd \
+        php5-curl \
+        php-pear \
+        php-apc && \
 
 RUN rm -rf /var/www/html/*; rm -rf /etc/apache2/sites-enabled/*; \
     mkdir -p /etc/apache2/external
